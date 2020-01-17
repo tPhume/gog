@@ -1,0 +1,15 @@
+filebeat.inputs:
+  - type: logger
+    enabled: true
+    paths:
+      - /gog/log/*.log
+
+output.elasticsearch:
+  hosts: [ "http://elasticsearch:9200" ]
+  username: elastic
+  password: changeme
+
+setup.kibana:
+  host: "kibana:5601"
+  username: elastic
+  password: changeme
