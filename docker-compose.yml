@@ -24,6 +24,30 @@ services:
       - elastic
     depends_on:
       - elasticsearch
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.5.1
+    container_name: filebeat
+    volumes:
+      - ./elastic/fb/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - ./app/log:/app/log
+    networks:
+      - elastic
+    depends_on:
+      - elasticsearch
+      - kibana
+    restart: always
+  gogbasic:
+    build:
+      context: ./app
+      dockerfile: basic.Dockerfile
+    image: gog/basic
+    container_name: gogbasic
+    volumes:
+      - ./app/log:/gog/log
+    ports:
+      - "8080:8080"
+    networks:
+      - elastic
 
 networks:
   elastic:

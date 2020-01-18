@@ -9,7 +9,7 @@ import (
 
 func main() {
 	router := gin.New()
-	router.Use(gin.LoggerWithWriter(getLogFile("./log/default.log")), gin.Recovery())
+	router.Use(gin.LoggerWithWriter(getLogFile("./log/filebeat-basic.log")), gin.Recovery())
 	router.GET("/", root)
 	router.GET("/hello", hello)
 	log.Fatal(router.Run("0.0.0.0:8080"))

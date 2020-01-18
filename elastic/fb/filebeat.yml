@@ -1,5 +1,5 @@
 filebeat.inputs:
-  - type: logger
+  - type: log
     enabled: true
     paths:
       - /gog/log/*.log
@@ -13,3 +13,6 @@ setup.kibana:
   host: "kibana:5601"
   username: elastic
   password: changeme
+
+setup.dashboards.enabled: true
+setup.dashboards.index: "filebeat-*"
