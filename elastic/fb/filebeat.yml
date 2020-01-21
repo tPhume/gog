@@ -15,4 +15,3 @@ setup.kibana:
   password: changeme
 
 setup.dashboards.enabled: true
-setup.dashboards.index: "filebeat-*"

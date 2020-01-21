@@ -29,7 +29,7 @@ services:
     container_name: filebeat
     volumes:
       - ./elastic/fb/filebeat.yml:/usr/share/filebeat/filebeat.yml
-      - ./app/log:/app/log
+      - ./app/log:/gog/log
     networks:
       - elastic
     depends_on:
